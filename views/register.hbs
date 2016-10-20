@@ -1,0 +1,78 @@
+<hr>
+<div class="container" style="width:60%">
+
+    <h3 >Personal Infomation</h3>
+	<div class="col-md-8 " >
+	<form role="form" class="form-horizontal" action="{:U("Login/post_loginfo")}" method="post">  
+		<div class="form-group">  
+			<label class="col-md-5 control-label" for="name">Name</label>  
+			<div class="col-md-7">  
+				<input class="form-control" name="name" type="text" id="name" placeholder="Name" value="" />  
+			</div>  
+		</div> 
+		<div class="form-group">  
+			<label class="col-md-5 control-label" for="name">Age</label>  
+			<div class="col-md-7">  
+				<input class="form-control" name="age" type="text" id="age" placeholder="Age" value="" />  
+			</div>  
+		</div> 
+		<div class="form-group">  
+			<label class="col-md-5 control-label" for="name">Gender</label>    
+			<div class="col-md-7">  
+				<label class="radio-inline">
+				  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> Male
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Female
+				</label> 
+				<label class="radio-inline">
+				  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Other
+				</label>
+			</div>    
+		</div>
+		<div class="form-group">  
+			<label class="col-md-5 control-label" for="name">Occupation</label>  
+			<div class="col-md-7">  
+				<input class="form-control" name="occupation" type="text" id="occupation" placeholder="Occupation" value="" />  
+			</div>  
+		</div>
+		<div class="form-group">  
+			<label class="col-md-5 control-label" for="name">Hometown</label>  
+			<div class="col-md-7">  
+				<input class="form-control" name="hometown" type="text" id="hometown" placeholder="Hometown" value="" />  
+			</div>  
+		</div>
+		<h4>Choose your tags</h4>
+		<div class="form-group">  
+			<div class="col-md-12 text-center">  
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox1" value="option1">Pets lover
+				</label>
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox2" value="option2">Party a lot
+				</label>
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox3" value="option3">Quite
+				</label>
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox2" value="option4">Smoker
+				</label>
+				<label class="checkbox-inline">
+				  <input type="checkbox" id="inlineCheckbox3" value="option5">Early bird
+				</label>
+			</div>  
+		</div>
+		<div class="form-group">  
+			<div class="col-md-offset-2 col-md-12 text-right">  
+				<button type="submit" class="btn btn-primary  btn-lg">  
+					SUBMIT
+				</button>  
+			</div>  
+		</div>  
+		</form> 
+	</div>
+	<div class="col-md-4 " >
+	</div>
+	
+	
+</div>
