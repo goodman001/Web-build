@@ -6,6 +6,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongoose=require('mongoose');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -64,6 +66,13 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+mongoose.connect('mongodb://root:master@ds035533.mlab.com:35533/webapp');
+mongoose.connection.on("error", function (error){
+    console.log("连接数据库失败"+error);
+    });
 
+    mongoose.connection.on("open", function (){
+        console.log("数据库连接成功！！！");
+	});
 
 module.exports = app;
