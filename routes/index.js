@@ -64,38 +64,41 @@ router.post('/userinfo', function(req, res, next) {
 	console.log(re["name"]);
       }
   });*/
-  var usercount = 0;
   User.count({'name':_name},function(err,re){
      if (err) {
         console.log(err);
         return;
      }else
      {  
-        usercount = re;
+        var usercount = re;
+        if(usercount >0)
+        {
+          console.log('have exist');
+          User.update({name: _name},{$set: {age: _age,gender:_gender,occupation:_occupation, 'hometown':_hometown,'tags':_tags}}, function(err) {
+          if(err){
+	    console.log(err);
+            return;
+          }
+          console.log('更新成功');
+          
+          });
+        }else
+        {
+          user.save(function(err,user){
+          if (err) {
+            console.log(err);
+          return;
+          }
+          console.log('注册成功');
+          res.cookie('name' , _name, {expire : new Date() + 600000});
+          console.log("Cookies :  ", req.cookies);
+          //res.send('注册成功');
+          });
+        }
       }       
   });
-  if(usercount >0)
-  {
-      User.update({'name': _name}, {'age': _age,'gender':_gender,'occupation':_occupation, 'hometown':_hometown,'tags':_tags}, function(err) {
-         if(err){
-	    console.log(err)
-            return
-         }
-         console.log('更新成功')
-      });
-  }else
-  {
-  user.save(function(err,user){
-     if (err) {
-         console.log(err);
-         return;
-     }
-     console.log('注册成功');
-     res.send('注册成功');
-  });
-  }
-  console.log(userinfo_);
+  
   //res.render('register', { title: 'Personal Infomation' });
-  });
+});
 
 module.exports = router;

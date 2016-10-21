@@ -23,6 +23,7 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 
+app.use(cookieParser());
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -66,6 +67,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://root:master@ds035533.mlab.com:35533/webapp');
 mongoose.connection.on("error", function (error){
     console.log("连接数据库失败"+error);
