@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var User = require("../models/user")
+var Rate = require("../models/rate")
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log("Cookies :  ", req.cookies['name']);
   res.render('index', { title: 'Express' });
 });
 router.get('/register', function(req, res, next) {
@@ -90,8 +92,9 @@ router.post('/userinfo', function(req, res, next) {
           return;
           }
           console.log('注册成功');
-          res.cookie('name' , _name, {expire : new Date() + 600000});
-          console.log("Cookies :  ", req.cookies);
+          res.cookie('name', _name, {expire : new Date() + 600000});
+	  res.redirect('/');
+          //console.log("Cookies :  ", req.cookies);
           //res.send('注册成功');
           });
         }
@@ -101,4 +104,9 @@ router.post('/userinfo', function(req, res, next) {
   //res.render('register', { title: 'Personal Infomation' });
 });
 
+router.get('/rate', function(req, res, next) {
+  console.log("rate");
+
+  //res.render('register', { title: 'Personal Infomation' });
+  });
 module.exports = router;
