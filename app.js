@@ -36,6 +36,10 @@ app.use('/', routes);
 app.use('/register',routes);
 app.use('/userinfo',routes);
 app.use('/rate',routes);
+app.use('/scores',routes);
+app.use('/liked',routes);
+app.use('/whoami',routes);
+
 app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -71,11 +75,11 @@ app.use(function(err, req, res, next) {
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://root:master@ds035533.mlab.com:35533/webapp');
 mongoose.connection.on("error", function (error){
-    console.log("连接数据库失败"+error);
+    console.log("database link failed"+error);
     });
 
     mongoose.connection.on("open", function (){
-        console.log("数据库连接成功！！！");
+        console.log("database link success！！！");
 	});
 
 module.exports = app;

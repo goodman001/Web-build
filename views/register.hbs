@@ -7,13 +7,13 @@
 		<div class="form-group">  
 			<label class="col-md-5 control-label" for="name">Name</label>  
 			<div class="col-md-7">  
-				<input class="form-control" name="name" type="text" id="name" placeholder="Name" value="" />  
+				<input class="form-control" name="name" type="text" id="name" placeholder="Name" value=""  maxlength="20" minlength="3" required />  
 			</div>  
 		</div> 
 		<div class="form-group">  
 			<label class="col-md-5 control-label" for="name">Age</label>  
 			<div class="col-md-7">  
-				<input class="form-control" name="age" type="text" id="age" placeholder="Age" value="" />  
+				<input class="form-control" name="age" type="text" id="age" placeholder="Age" value="" pattern="^[0-9]{1,2}$" required/>  
 			</div>  
 		</div> 
 		<div class="form-group">  
@@ -33,13 +33,13 @@
 		<div class="form-group">  
 			<label class="col-md-5 control-label" for="name">Occupation</label>  
 			<div class="col-md-7">  
-				<input class="form-control" name="occupation" type="text" id="occupation" placeholder="Occupation" value="" />  
+				<input class="form-control" name="occupation" type="text" id="occupation" placeholder="Occupation" value="" maxlength="30" minlength="3"  required />  
 			</div>  
 		</div>
 		<div class="form-group">  
 			<label class="col-md-5 control-label" for="name">Hometown</label>  
 			<div class="col-md-7">  
-				<input class="form-control" name="hometown" type="text" id="hometown" placeholder="Hometown" value="" />  
+				<input class="form-control" name="hometown" type="text" id="hometown" placeholder="Hometown" value="" maxlength="100" minlength="3" required />  
 			</div>  
 		</div>
 		<h4>Choose your tags</h4>
@@ -76,3 +76,4 @@
 	
 	
 </div>
+<script>$('#form').validation();</script>

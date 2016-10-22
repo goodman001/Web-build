@@ -1,0 +1,46 @@
+<div class="container" style="width:60%">
+    
+	<h3 ><span class="glyphicon glyphicon-search"></span> Your Liked List</h3>
+	<div class="col-md-12 " >
+		<div class="thumbnail">
+			<div class="caption">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th style="width:1%"></th>
+							<th style="width:30%"><center>Personal Infomation</center></th>
+							<th style="width:30%"><center>Rating</center></th>
+							<th style="width:30%"></th>
+						</tr>
+					</thead>
+					<tbody>
+					{{#each lists}}
+						<tr>
+							<td><center><span class="glyphicon glyphicon-heart text-danger"></span></center></td>
+							<td>
+							    <center>
+							       Username: {{this.target}}<br>
+							       Age: {{this.age}}<br>
+							       Gender: {{this.gender}}<br>
+							       Occupation: {{this.occupation}}<br>
+							       Hometown: {{this.hometown}}<br>
+                                                               Tags: {{this.tags}}
+							    </center>
+							</td>
+							<td><center>
+							 {{#each this.score}}
+							    <span class='glyphicon glyphicon-star text-warning'></span>
+							 {{/each}}
+							</center></td>
+							<td><center><button type="button" class="btn btn-default">Message</button></center></td>
+						</tr>
+					{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>	
+
+	</div>
+	
+	
+</div>	
