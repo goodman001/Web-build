@@ -1,28 +1,21 @@
-http://www.icoolxue.com/blog/show/6
-sudoadd-apt-repository ppa:chris-lea/node.jssudoapt-get updatesudoapt-get install nodejs
+# NEED
+node.js: v6.9.1
+# build
 
-http://wiki.jikexueyuan.com/project/express-mongodb-setup-blog/handlebars.html
-npm  install --save express3-handlebars
-
-mac 安装教程：
-http://mac-osx-for-newbie-book.kejyun.com/software/softwareWebDeveloperNodeJS.html
+Mac :
 brew install nvm
-vim .bash_profile  
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
+vim ~/.bash_profile
+   `export NVM_DIR=~/.nvm`
+   `source $(brew --prefix nvm)/nvm.sh`
 $ source .bash_profile
 nvm ls-remote
 nvm install v6.9.1
 sudo npm install -g express --save
 
-sudo npm install -g express-generator
-npm install handlebars
-$ npm install body-parser --save
-$ npm install cookie-parser --save
-$ npm install multer --save
-./bin/www运行错误：
-npm install
+sudo npm install -g express-generator --save
+npm install body-parser --save
+npm install cookie-parser --save
+npm install multer --save
+npm install express3-handlebars --save
 
-https://www.codementor.io/nodejs/tutorial/cookie-management-in-express-js
-http://jingyan.baidu.com/article/8275fc86641f1146a03cf6ed.html
+moongoose
