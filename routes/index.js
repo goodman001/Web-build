@@ -11,11 +11,29 @@ router.get('/register', function(req, res, next) {
   res.render('register', { title: 'Personal Infomation' });
 });
 router.get('/liked', function(req, res, next) {
+  var r = req.query.q;
+  switch(r){
+    case '0':
+      var cond = {'score':'desc',};
+      break;
+    case '1':
+      var cond = {'score': 'asc',};
+      break;
+    case '2':
+      var cond = {'age':'desc',};
+      break;
+    case '3':
+      var cond = {'age':'asc',};
+      break;
+    default:
+      var cond = {};
+
+  }
   var username = req.cookies['name'];
   if(!username){
     res.redirect('/');
   }
-  Rate.find({'username':username}).sort({score:'desc'}).populate('tid').exec(function(err,re){
+  Rate.find({'username':username}).sort(cond).populate('tid').exec(function(err,re){
   var lists = new Array();
   if (err) {
     console.log(err);
@@ -94,12 +112,14 @@ router.post('/scores',function(req, res, next) {
         return;
       }else
       {
+         var age = re['age'];
          var infolist = 
          {
            tid : re['_id'],
            target: target,
            username: username,
            score: score,
+	   age:age,
          };
          var rate = new Rate(infolist);
          Rate.count({'target':target,'username':username},function(err,re){
@@ -113,7 +133,7 @@ router.post('/scores',function(req, res, next) {
              {
                //console.log('have exist');
      
-               Rate.update({'target':target,'username':username},{$set: {score: score}}, function(err) {
+               Rate.update({'target':target,'username':username},{$set: {score: score,age:age}}, function(err) {
                if(err){
 	         console.log(err);
                  return;

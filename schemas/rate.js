@@ -4,5 +4,6 @@ var RateSchema=new mongoose.Schema({
   target:String,
   username:String,
   score:Number,
+  age:Number,
     })
   module.exports=RateSchema;
